@@ -1,0 +1,38 @@
+#include<iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+ 
+int main()
+{	//初始化随机数
+	std::srand(std::time(0));
+	/*
+	*low 是最低值
+	* high 是最高值
+	* number 是猜中的值
+	*/
+	int low,high,number;
+	std::cout<<"输入最低值"<<endl;
+	std::cin>>low;
+	std::cout<<"输入最大值"<<endl;
+	std::cin>>high;
+	//生成随机数公式
+	int random_number=low+std::rand()%(high+1);
+	//do while(); 循环判断
+	do
+	{
+		std::cout<<"输入要猜的数字"<<endl;
+		std::cin>>number;
+		if(number<random_number)
+		{
+			std::cout<<"输入猜测的数字太小了"<<endl;
+		}
+		else if(number>random_number)
+		{
+			std::cout<<"输入猜测的数字太大了"<<endl;
+		}
+		else
+		{std::cout<<"你猜对了"<<endl; }
+	}while(number!=random_number);
+	return 0;
+}
